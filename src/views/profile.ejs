@@ -1,0 +1,11 @@
+<%- layout('layouts/main.ejs') %>
+
+<h1>Profile of <%= user.email %></h1>
+
+<button onclick="logout()">Salir</button>
+
+<script type="text/javascript">
+    function logout() {
+        window.location = "/logout";
+    }
+</script>
