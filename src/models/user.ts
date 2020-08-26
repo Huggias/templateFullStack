@@ -28,6 +28,10 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
     public username!: string;
     public password!: string;
 
+    constructor(){
+        super();
+    }
+
     // timestamps!
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
