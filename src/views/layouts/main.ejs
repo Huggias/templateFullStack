@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <!-- meta data -->
+
         <!-- set spanish languaje -->
         <meta charset="UTF-8">
 
@@ -38,6 +40,12 @@
         <!-- Mustache js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 
+        <!-- html2canvas -->
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+        <!-- jsPDF -->
+        <!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script> -->
+
         <!-- checking framwoeks of js -->
         <script type="text/javascript">
             $(document).ready( ()=>{
@@ -51,6 +59,10 @@
                 if(Mustache){
                     console.log("MustacheJs was loaded")
                 }
+                if (html2canvas) {
+                    console.log("html2canvas was loaded")
+                }
+            
             });
         </script>
     </head>

@@ -1,12 +1,15 @@
 import { Router, Request, Response } from "express";
-import multer from "../libs/multer/basic";
-// import {main} from "../models/settings";
+import { jsPDF } from "jspdf";
 const router = Router();
 
-router.route('/testImg')
-    .post( multer.single('image'), async (req: Request, res: Response) => {
-        console.log(req.file);
-        return res.send("Hola");
+router.route('/test')
+    .get((req: Request, res: Response) => {
+        // print pdf
+        const doc = new jsPDF();
+        doc.text("Hello world!", 10, 10);
+        doc.save("./public/pdf/a4.pdf");
+        console.log(doc);
+        res.render("test");
     });
 
 

@@ -6,7 +6,8 @@ import path from 'path';
 import passport = require('passport');
 import session from "express-session";
 import flash from 'connect-flash';
-
+import helmet from 'helmet';
+import cookieParser  from 'cookie-parser';
 
 // por alguna razon la forma import ej from module no anduvo
 const multer = require('multer');
@@ -49,9 +50,8 @@ export class App {
     private middleware(): void{
         this.app.use(morgan("dev"));
         this.app.use(json());
-        // this.app.use(multer({
-        //     dest: path.join(__dirname, '../public/images') 
-        // }).single('image'));
+        // this.app.use(helmet());
+        // this.app.use(cookieParser());
         this.app.use(express.urlencoded({extended: false}))
         this.app.use(session({
             secret: 'key',
@@ -71,7 +71,7 @@ export class App {
 
         // static files
         this.app.use(express.static(path.join(__dirname, 'views')));
-        this.app.use('/public', express.static(path.resolve('public'))); // not work, CHECK
+        this.app.use('/public',express.static(path.join(__dirname, '../public'))); 
     }
     private settings(port?: number){
         this.app.set('views', path.join(__dirname, 'views'))
